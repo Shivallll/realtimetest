@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin: 10px 0;
+            color: #0056b3;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f8ff;
+            color: #333;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>English Test</h1>
+
+        <div class="question">
+            <h3>1. What is the synonym of 'Happy'?</h3>
+            <label><input type="radio" name="q1" value="Sad"> Sad</label>
+            <label><input type="radio" name="q1" value="Joyful"> Joyful</label>
+            <label><input type="radio" name="q1" value="Angry"> Angry</label>
+            <label><input type="radio" name="q1" value="Fearful"> Fearful</label>
+        </div>
+
+        <div class="question">
+            <h3>2. What is the correct plural form of 'Child'?</h3>
+            <label><input type="radio" name="q2" value="Childs"> Childs</label>
+            <label><input type="radio" name="q2" value="Children"> Children</label>
+            <label><input type="radio" name="q2" value="Childrens"> Childrens</label>
+            <label><input type="radio" name="q2" value="Childes"> Childes</label>
+        </div>
+
+        <div class="question">
+            <h3>3. Fill in the blank: She _____ to the market yesterday.</h3>
+            <label><input type="radio" name="q3" value="go"> go</label>
+            <label><input type="radio" name="q3" value="goes"> goes</label>
+            <label><input type="radio" name="q3" value="went"> went</label>
+            <label><input type="radio" name="q3" value="gone"> gone</label>
+        </div>
+
+        <div class="question">
+            <h3>4. Which sentence is grammatically correct?</h3>
+            <label><input type="radio" name="q4" value="I is going to the park."> I is going to the park.</label>
+            <label><input type="radio" name="q4" value="I am going to the park."> I am going to the park.</label>
+            <label><input type="radio" name="q4" value="I are going to the park."> I are going to the park.</label>
+            <label><input type="radio" name="q4" value="I be going to the park."> I be going to the park.</label>
+        </div>
+
+        <button onclick="submitTest()">Submit Test</button>
+
+        <div id="result" class="result">
+            You scored <span id="score">0</span> out of 4!
+        </div>
+    </div>
+
+    <script>
+        function submitTest() {
+            // Get selected answers
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            const q4 = document.querySelector('input[name="q4"]:checked');
+
+            // Set correct answers
+            const answers = {
+                q1: 'Joyful',
+                q2: 'Children',
+                q3: 'went',
+                q4: 'I am going to the park.'
+            };
+
+            let score = 0;
+
+            // Check each answer
+            if (q1 && q1.value === answers.q1) score++;
+            if (q2 && q2.value === answers.q2) score++;
+            if (q3 && q3.value === answers.q3) score++;
+            if (q4 && q4.value === answers.q4) score++;
+
+            // Display result
+            document.getElementById('score').innerText = score;
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
